@@ -56,7 +56,6 @@ build/
 
 # Datos generados
 *.dat
-*.txt
 *.csv
 *.bin
 *.grd
