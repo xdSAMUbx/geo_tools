@@ -1,23 +1,28 @@
 name: geo_tools
 channels:
   - conda-forge
+
 dependencies:
-  # Versión de Python
+  # Python
   - python=3.12
 
-  # Herramientas de build
+  # Build essentials
   - cmake
   - ninja
 
   # Compiladores
   - gfortran
   - fortls
+  - c-compiler
+  - cxx-compiler
 
-  # BLAS/LAPACK unificado (CLAVE)
-  - libblas=*=*openblas
-  - liblapack=*=*openblas
+  # BLAS/LAPACK (asegura consistencia)
+  - blas[build=openblas]
+  - openblas
+  - liblapack
+  - libcblas
 
-  # C++ / numérico
+  # Numérico
   - armadillo
   - superlu
   - nlohmann_json
@@ -27,18 +32,17 @@ dependencies:
 
   # MPI
   - mpich
-  - caf-mpich
 
   # Geoespacial
   - gdal
   - geopandas
   - fiona
 
-  # GMT stack
+  # GMT
   - gmt
   - pygmt
 
-  # Python científico
+  # Científico
   - numpy
   - scipy
   - pandas
@@ -47,6 +51,5 @@ dependencies:
   # UI
   - pyqt
 
-  # CUDA correcto (opcional)
+  # CUDA (opcional, comentar si no lo necesitas)
   - cuda-toolkit
-  - libcublasmp-dev

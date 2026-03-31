@@ -8,16 +8,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_Fortran_PREPROCESS ON)
 
 # Se configuran las banderas de fortran
-set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} 
-    -cpp 
-    -fbacktrace 
-    -ffree-form 
-    -ffree-line-length-none"
-)
+set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -cpp -fbacktrace -ffree-form -ffree-line-length-none")
 
 # Se configuran los directorios para guardar los modulos y ejecutables
 set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
-set(PROJECT_FORTRAN_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src/fortran")
 set(PROJECT_MODULE_BINARY_DIR "${CMAKE_BINARY_DIR}/modules")
 
 # Crear directorio de módulos
@@ -31,6 +25,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 # Busqueda de dependencias base
+set(BLA_VENDOR OpenBLAS)
 find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
 
