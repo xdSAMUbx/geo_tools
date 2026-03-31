@@ -1,0 +1,81 @@
+# Build dirs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Binaries / objects
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Fortran modules
+*.mod
+*.smod
+
+# Dependency / compiler artifacts
+*.d
+*.gcno
+*.gcda
+
+# MPI / OpenCoarrays temp
+*.CAF
+*.caf
+*.mpi
+fort.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual envs / conda
+.env
+.venv
+venv/
+env/
+conda-meta/
+
+# Packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datos generados
+*.dat
+*.txt
+*.csv
+*.bin
+*.grd
+*.nc
+*.vtk
+*.log
+
+# Resultados de modelos
+output/
+results/
+
+# VSCode / CLion / etc
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.swp
+*.tmp
+*.bak
