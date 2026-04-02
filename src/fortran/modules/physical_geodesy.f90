@@ -15,7 +15,6 @@ module physical_geodesy
     real(kind=8), parameter :: BIGS = 2.0_8 ** (IND/2)
     real(kind=8), parameter :: BIGSI = 2.0_8 ** (-IND/2)
 
-    private :: FCM_AFL_FUKU 
 contains
 
     subroutine x2f(x, ix, P)
@@ -118,16 +117,17 @@ contains
         end do
     end subroutine FCM_AFL_FUKU
 
-    ! Añadir al módulo physical_geodesy, dentro de contains
-    subroutine FCM_AFL_FUKU_PY(Nmax, teta, P)
-        integer(kind=4), intent(in)  :: Nmax
-        real(kind=8),   intent(in)  :: teta
-        real(kind=8),   intent(out) :: P(0:Nmax, 0:Nmax)   ! sin allocatable
+    pure subroutine grid(ini, fin, steps, vec)
+        real(kind=8), intent(in) :: ini, fin
+        integer(kind=4), intent(in) :: steps
+        real(kind=8), intent(out) :: vec(:)
 
-        real(kind=8), allocatable :: Ptmp(:,:)
+        integer :: n
+        real(kind=8) :: dist
 
-        call FCM_AFL_FUKU(Nmax, teta, Ptmp)
-        P = Ptmp
-    end subroutine FCM_AFL_FUKU_PY
-
+        dist = (fin - ini)/real(steps, kind=8)
+        do concurrent(n = 0 : steps)
+            vec(n+1) = real(ini + n * dist,kind=8)
+        end do
+    end subroutine grid
 end module physical_geodesy

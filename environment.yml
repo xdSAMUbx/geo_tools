@@ -13,8 +13,9 @@ dependencies:
   # Compiladores
   - gfortran
   - fortls
-  - c-compiler
-  - cxx-compiler
+  - gcc
+  - gxx
+  - binutils
 
   # BLAS/LAPACK (asegura consistencia)
   - blas[build=openblas]
@@ -24,15 +25,11 @@ dependencies:
 
   # Numérico
   - armadillo
-  - superlu
   - nlohmann_json
   - re2
   - pybind11
   - suitesparse
   - fftw
-
-  # MPI
-  - mpich
 
   # Geoespacial
   - gdal
@@ -53,6 +50,7 @@ dependencies:
 
   # UI
   - pyqt
+  - google-re2
 
   # CUDA (opcional, comentar si no lo necesitas)
   - cuda-toolkit

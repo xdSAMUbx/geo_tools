@@ -20,9 +20,31 @@
       }
     },
     {
+      "name": "conda-windows",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "$env{CONDA_PREFIX}/Library/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "$env{CONDA_PREFIX}/Library/bin/g++.exe",
+        "CMAKE_Fortran_COMPILER": "$env{CONDA_PREFIX}/Library/bin/gfortran.exe",
+        "CMAKE_PREFIX_PATH": "$env{CONDA_PREFIX}",
+        "CMAKE_LIBRARY_PATH": "$env{CONDA_PREFIX}/Library/lib",
+        "CMAKE_BUILD_RPATH": "$env{CONDA_PREFIX}/Library/lib"
+      }
+    },
+    {
       "name": "linux-release",
       "displayName": "Linux (Conda) - Release",
       "inherits": "conda-linux",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "windows-release",
+      "displayName": "Windows (Conda) - Release",
+      "inherits": "conda-windows",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
@@ -32,6 +54,11 @@
     {
       "name": "linux-release",
       "configurePreset": "linux-release",
+      "jobs": 8
+    },
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-release",
       "jobs": 8
     }
   ]
