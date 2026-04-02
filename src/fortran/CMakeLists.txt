@@ -1,8 +1,7 @@
-# Buscar todos los módulos en la carpeta modules/
-file(GLOB FORTRAN_MODULE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/modules/*.f90")
-
 # Crear librería con los módulos
-add_library(geodesia_core ${FORTRAN_MODULE_SOURCES})
+add_library(geodesia_core 
+    modules/physical_geodesy.f90
+)
 
 # Linkear con BLAS/LAPACK
 target_link_libraries(geodesia_core PUBLIC

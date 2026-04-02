@@ -29,6 +29,7 @@ dependencies:
   - re2
   - pybind11
   - suitesparse
+  - fftw
 
   # MPI
   - mpich
@@ -47,6 +48,8 @@ dependencies:
   - scipy
   - pandas
   - matplotlib
+  - meson
+  - meson-python
 
   # UI
   - pyqt
